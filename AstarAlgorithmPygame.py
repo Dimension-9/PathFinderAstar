@@ -14,10 +14,10 @@ LavenderBlue = (150, 184, 255) # lavender blue
 GREEN = (170, 184, 255)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
-WHITE = (204,247,255)  # (179,229,255) # light cyan
+CYAN = (204, 247, 255)  # (179,229,255) # light cyan
 BLACK = (0, 0, 0)
-PURPLE = (24,92,144)  # (24,92,144) # (128, 0, 128)
-ORANGE = (0, 255, 0)  # green
+PURPLE = (24,92,144)
+SGREEN = (0, 255, 0)
 GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
 
@@ -28,7 +28,7 @@ class Spot:
         self.col = col
         self.x = row * width
         self.y = col * width
-        self.color = WHITE  # all nodes/spots are white initially
+        self.color = CYAN  # all nodes/spots are white initially
         self.neighbors = []
         self.width = width
         self.total_rows = total_rows
@@ -47,13 +47,13 @@ class Spot:
         return self.color == BLACK
 
     def is_start(self):
-        return self.color == ORANGE
+        return self.color == SGREEN
 
     def is_end(self):
         return self.color == TURQUOISE
 
     def reset(self):
-        self.color = WHITE
+        self.color = CYAN
 
     # Utility functions
     def make_closed(self):
@@ -66,7 +66,7 @@ class Spot:
         self.color = BLACK
 
     def make_start(self):
-        self.color = ORANGE
+        self.color = SGREEN
 
     def make_end(self):
         self.color = TURQUOISE
@@ -179,7 +179,7 @@ def draw_grid(win, rows, width):
     #     pygame.draw.line(win, GREY, (j * gap, 0), (j * gap, width))
 
 def draw(win, grid, rows, width):
-    win.fill(WHITE)  # fills the screen white
+    win.fill(CYAN)  # fills the screen white
 
     # drawing the colours of boxes
     for row in grid:
